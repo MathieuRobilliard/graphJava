@@ -17,7 +17,7 @@ public class TestGraph {
 		Vertex vertex3 = new Vertex(3);
 		
 		Edge directedEdge = new DirectedEdge(vertex1, vertex2);
-		Edge unDirectedEdge = new UnDirectedEdge(vertex2, vertex3);
+		Edge unDirectedEdge = new UndirectedEdge(vertex2, vertex3);
 
 	}
 
