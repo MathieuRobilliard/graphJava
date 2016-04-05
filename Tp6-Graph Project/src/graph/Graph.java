@@ -1,85 +1,78 @@
 package graph;
 
 /**
- * This <b>interface</b> represent the graph, which has vertices and edges
+ * This interface allows to manipulate a directed or undirected graph
  * @author Gauchoux, Robilliard
  */
 public interface Graph {
 	
 	/**
-	 * Create a new Edge in this graph, going from the source vertex to the target vertex, and returns the created edge.
-	 * @param vertexSource
-	 * @param vertexEnd
-	 * @return
+	 * Creates a new edge, going from the source vertex to the end vertex, and returns it
+	 * Both vertices must don't exist in the graph
+	 * @param sourceVertex The source of the edge for DirectedEdge, can be both of vertices in case of UndirectedEdge
+	 * @param endVertex The end of the edge for DirectedEdge, can be both of vertices in case of UndirectedEdge
+	 * @return the created edge using parameters
 	 */
-	public Edge addEdge(Vertex vertexSource, Vertex vertexEnd);
+	public Edge addEdge(Vertex sourceVertex, Vertex endVertex);
 	
 	/**
-	 * Adds the specified edge to this graph, going from the source vertex to the target vertex.
-	 * @param vertex1
-	 * @param vertex2
-	 * @param edge
+	 * Adds an edge to the graph
+	 * Edge and vertices of edge must don't exist in the graph
+	 * @param edge The edge to add
 	 */
-	public void addEdge(Vertex vertex1, Vertex vertex2, Edge edge);
+	public void addEdge(Edge edge);
 	
 	/**
-	 * Adds the specified vertex to this graph if not already present.
-	 * @param vertex
+	 * Adds a vertex if not already exists
+	 * @param vertex A vertex 
 	 */
 	public void addVertex(Vertex vertex);
 	
 	/**
-	 * Returns true if this graph contains the specified edge.
-	 * @param e
+	 * Returns if the graph contains the specified edge.
+	 * @param edge The edge to test
+	 * @return True if exists, False else
 	 */
-	public Boolean containsEdge(Edge e);
+	public Boolean containsEdge(Edge edge);
 	
 	/**
-	 * Returns true if and only if this graph contains an edge going from the source vertex to the target vertex.
-	 * @param sourceVertex
-	 * @param targetVertex
-	 * @return
+	 * Returns if the graph contains an edge according to a source vertex and an end vertex
+	 * @param sourceVertex The source vertex to test the existence of the edge
+	 * @param endVertex The end vertex to test the existence of the edge
+	 * @return True if exists, False else
 	 */
-	public Boolean containsEdge(Vertex sourceVertex, Vertex targetVertex);
+	public Boolean containsEdge(Vertex sourceVertex, Vertex endVertex);
 	
 	/**
-	 * Returns true if this graph contains the specified vertex.
-	 * @param v
-	 * @return
+	 * Returns if the graph contains the specified vertex.
+	 * @param vertex The vertex to test
+	 * @return True if exists, False else
 	 */
-	public Boolean containsVertex(Vertex v);
+	public Boolean containsVertex(Vertex vertex);
 	
 	/**
-	 * Returns an edge connecting source vertex to target vertex if such vertices and such edge exist in this graph.
-	 * @param sourceVertex
-	 * @param targetVertex
-	 * @return
+	 * Get all edges between two vertices
+	 * Both vertices must exist in the graph
+	 * @param sourceVertex A source vertex
+	 * @param endVertex A end vertex
+	 * @return An array of edges
 	 */
-	public Edge getEdges(Vertex sourceVertex, Vertex targetVertex);
+	public Edge[] getEdges(Vertex sourceVertex, Vertex endVertex);
 	
 	/**
-	 * Returns the source vertex of an edge.
-	 * @param e
+	 * Removes the specified edge and his vertices from the graph
+	 * The edge must be already in the graph
+	 * @param edge An existing edge in the graph
+	 * @return The removed edge
 	 */
-	public Vertex getEdgeSource(Edge e);
+	public Edge removeEdge(Edge edge);
 	
 	/**
-	 * Returns the target vertex of an edge.
-	 * @param e
-	 * @return
+	 * Removes the specified vertex from the graph
+	 * The vertex must be already in the graph
+	 * @param vertex An existing vertex in the graph
+	 * @return The removed vertex
 	 */
-	public Vertex getEdgeTarget(Edge e);
-	
-	/**
-	 * Removes the specified edge from the graph.
-	 * @param e
-	 */
-	public void removeEdge(Edge e);
-	
-	/**
-	 * Removes the specified vertex from this graph including all its touching edges if present.
-	 * @param v
-	 */
-	public void removeVertex(Vertex v);
+	public Vertex removeVertex(Vertex vertex);
 	
 }

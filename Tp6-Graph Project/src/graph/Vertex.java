@@ -2,19 +2,22 @@ package graph;
 
 
 /**
- * This <b>Class</b> is an vertex of the graph
+ * Describe a vertex containing an object
  * @author Gauchoux, Robilliard
  */
 public class Vertex {
 	
-	private int id;
+	/**
+	 * A general contents
+	 */
+	private Object contents;
 	
 	/**
-	 * Constructor of Vertex Class
-	 * @param id is the number of the vertex created
+	 * Make a vertex with an contents
+	 * @param contents The contents to save in the vertex
 	 */
-	public Vertex(int id) {
-		this.id = id;
+	public Vertex(Object contents) {
+		this.contents = contents;
 	}
 
 }
